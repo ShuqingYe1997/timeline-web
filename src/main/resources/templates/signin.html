@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" th:href="@{/images/icon.ico}">
+
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center" style="background-image:url(../images/fordGT.jpg) ">
+<form class="form-signin" action="#" th:action="@{/demo/login}" th:object="${user}" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">Welcome</h1>
+
+    <label for="inputUsername" class="sr-only">username</label>
+    <input th:field="*{username}" id="inputUsername" class="form-control" placeholder="username">
+
+    <label for="inputPassword"class="sr-only">password</label>
+    <input type="password" th:field="*{password}" id="inputPassword" class="form-control" placeholder="password">
+
+    <!--<div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>-->
+    <hr class="mr-4">
+    <div class="row">
+        <div class="col">
+            <button type="submit" id="signin" class="btn btn-secondary btn-block">Login</button>
+        </div>
+        <div class="col">
+            <a type="button" id="register" class="btn btn-light btn-block" th:href="@{/register}">Register</a>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>My Timeline</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" th:href="@{/css/main.css}" />
+		<link rel="icon" th:href="@{/images/icon.ico}">
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a th:href="@{/demo/logout}">LOG OUT</a></h1>
+						<h1>Hello, <a th:text="${user.username}">!</a></h1>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-refresh" th:href="@{/demo/refresh}">refresh</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+						<ul style="list-style-type: none">
+							<li th:each="posts: ${allPosts}">
+								<div class="blogBox moreBox" style="display: none">
+								<article class="post">
+									<header>
+										<div class="meta">
+											<a class="published" th:text="${posts.username}"><span class="name"></span></a>
+											<p class="author" th:text="${posts.timestampToString()}"></p>
+										</div>
+									</header>
+									<img th:src="${posts.picture}" alt="" />
+									<p th:text="${posts.content}"></p>
+								</article>
+								</div>
+							</li>
+						</ul>
+
+
+						<!-- Pagination -->
+							<ul class="actions pagination" style="padding-left: 20px">
+								<li><a id="loadMore" class="button large next">LOAD MORE</a></li>
+								<li><a href="#top" class="button large next">BACK TO TOP</a></li>
+							</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/browser.min.js}"></script>
+		<script th:src="@{/js/breakpoints.min.js}"></script>
+		<script th:src="@{/js/util.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
+
+
+		<script>
+            $( document ).ready(function () {
+                $(".moreBox").slice(0, 3).show();
+                if ($(".blogBox:hidden").length != 0) {
+                    $("#loadMore").show();
+                }
+                var n=0;
+                $("#loadMore").on('click', function (e) {
+                    e.preventDefault();
+                    n+=3;
+                    $(".moreBox:hidden").slice(0, n).slideDown();
+                });
+                if ($(".moreBox:hidden").length == 0) {
+                        $("#loadMore").fadeOut('slow');
+                    }
+            });
+
+            $('a[href=#top]').click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+		</script>
+
+	</body>
+</html>
