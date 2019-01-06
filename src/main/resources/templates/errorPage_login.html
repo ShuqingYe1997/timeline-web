@@ -24,7 +24,12 @@
           <button type="button" class="btn btn-danger">Wrong input</button>
       </h1>
       <p class="lead"  th:text="${errorMessage}"></p>
-      <a th:href="@{/demo/login}">Back to login page</a>
+      <ol>
+        <ol class="lead"  th:each="error:${errors}">
+          <span th:text="${error.getDefaultMessage()}"></span>
+        </ol>
+      </ol>
+      <a th:href="@{/demo}">Back to login page</a>
     </main>
 
     <!--<footer class="footer">

@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" th:href="@{/images/icon.ico}">
+
+    <title>Register</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center" style="background-image:url(../images/fordGT.jpg) ">
+<form class="form-signin" action="#" th:action="@{/submit}" th:object="${userForm}" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">Go for your own account</h1>
+
+    <label for="registerUsername" class="sr-only">username</label>
+    <input th:field="*{username}" id="registerUsername" class="form-control" placeholder="username">
+    <small id="nameHelp" class="form-text text-muted">6~20 characters,consisting of letters or digits</small>
+
+    <label for="registerPassword1"class="sr-only">password1</label>
+    <input type="password" th:field="*{password}" id="registerPassword1" class="form-control" placeholder="password">
+    <small id="passwordHelp" class="form-text text-muted">6~20 characters,consisting of letters or digits</small>
+
+    <label for="registerPassword2"class="sr-only">password2</label>
+    <input type="password" th:field="*{password2}" id="registerPassword2" class="form-control" placeholder="comfirm your password">
+
+    <hr class="mr-4">
+    <button type="submit" class="btn btn-secondary btn-block" >Submit</button>
+
+</form>
+
+</body>
+</html>

@@ -24,6 +24,11 @@
           <button type="button" class="btn btn-danger">illegal Username/Password</button>
       </h1>
       <p class="lead"  th:text="${errorMessage}"></p>
+      <ol>
+        <ol class="lead"  th:each="error:${errors}">
+          <span th:text="${error.getDefaultMessage()}"></span>
+        </ol>
+      </ol>
       <a th:href="@{/register}">Back to register page</a>
     </main>
 
