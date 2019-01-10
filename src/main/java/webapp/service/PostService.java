@@ -39,7 +39,7 @@ public class PostService {
 
         String pics[] = {"https://pbs.twimg.com/media/Dv-Ezj3VsAENd91.jpg:large",
         "http://img2.chinadaily.com.cn/images/201901/02/5c2cd84ba310d9126fdc9414.jpeg",
-        ""};
+        "https://www.piccoloteatro.org/uploads/seasons/2018-2019/it_logo-18-19-912x395_original.jpg"};
 
         Random random=new Random();
         int i = random.nextInt(names.length);
